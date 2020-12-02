@@ -30,12 +30,12 @@ puts valid_passwords.count
 
 def check_password_new(hash)
   password  = hash[:password]
-  first     = hash[:min]
-  second    = hash[:max]
+  first     = hash[:min] - 1
+  second    = hash[:max] - 1
   char      = hash[:required_char]
 
-  (password[first - 1] == char && password[second - 1] != char) ||
-  (password[first - 1] != char && password[second - 1] == char)
+  (password[first] == char && password[second] != char) ||
+  (password[first] != char && password[second] == char)
 end
 
 valid_passwords = all_passwords.select { |pass_hash| check_password_new(pass_hash) }
