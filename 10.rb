@@ -13,10 +13,10 @@ p x * y
 
 # PART 2
 
-def f a, cache, n
+def f a, c, n
   return 1 if n == 0
   return 0 if !a.include? n
-  cache[n] ||= (1..3).sum { |x| f a, cache, n - x }
+  c[n] ||= (1..3).sum { |x| f a, c, n - x }
 end
 
 p f a.to_set, {}, a.last
